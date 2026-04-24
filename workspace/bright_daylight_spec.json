@@ -1,0 +1,14 @@
+{
+    "name": "bright_daylight",
+    "prompt": "A humanoid robot handing a bottle to a person in a bright, sunlit laboratory. Warm natural daylight floods through large windows, casting soft shadows across the workspace.",
+    "video_path": "/home/akuls/lighting_change/1009_1024_vis_sam3_14/episode_000000/video.mp4",
+    "guidance": 3,
+    "seed": 42,
+    "edge": {
+        "control_weight": 0.7,
+        "preset_edge_threshold": "high"
+    },
+    "depth": {
+        "control_weight": 1.0
+    }
+}
