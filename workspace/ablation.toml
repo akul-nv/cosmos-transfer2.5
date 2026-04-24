@@ -1,0 +1,55 @@
+# Cosmos Transfer 2.5 — Ablation Study Config
+#
+# Edit prompts and controls below, then run:
+#   python workspace/ablate.py            # generate specs + run script
+#   python workspace/ablate.py --list     # preview the grid
+#
+# Full grid is generated: prompts × controls × guidance × seeds
+
+[base]
+video_path = "/home/akuls/lighting_change/1009_1024_vis_sam3_14/episode_000000/video.mp4"
+seed = 42
+guidance = 3
+
+# ── Prompts (named variants) ────────────────────────────────────
+
+[prompts]
+bright_daylight = """
+A humanoid robot handing a bottle to a person in a bright, sunlit
+robotics laboratory. Warm natural daylight floods the room, casting
+soft shadows across the workspace."""
+
+# warm_sunset = """
+# A humanoid robot handing a bottle to a person in a lab bathed in
+# warm golden sunset light. Long amber shadows stretch across the floor."""
+
+# overcast = """
+# A humanoid robot handing a bottle to a person under soft, diffused
+# overcast light in a clean modern laboratory."""
+
+# fluorescent_night = """
+# A humanoid robot handing a bottle to a person in a laboratory lit
+# by cool fluorescent overhead lights at night, no natural light."""
+
+# ── Control configs (named variants) ────────────────────────────
+
+[controls.edge_high_depth]
+edge = { control_weight = 0.7, preset_edge_threshold = "high" }
+depth = { control_weight = 1.0 }
+
+# [controls.edge_only]
+# edge = { control_weight = 0.5, preset_edge_threshold = "high" }
+
+# [controls.edge_depth_vis]
+# edge = { control_weight = 0.7, preset_edge_threshold = "high" }
+# depth = { control_weight = 1.0 }
+# vis = { control_weight = 0.1 }
+
+# [controls.edge_low]
+# edge = { control_weight = 0.3, preset_edge_threshold = "high" }
+# depth = { control_weight = 1.0 }
+
+# ── Optional: sweep extra dimensions ────────────────────────────
+# Uncomment to add guidance / seed as additional grid axes:
+# sweep_guidance = [3, 5]
+# sweep_seed = [42, 123, 456]

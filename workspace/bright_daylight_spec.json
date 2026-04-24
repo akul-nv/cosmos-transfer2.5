@@ -8,7 +8,7 @@
         "control_weight": 0.7,
         "preset_edge_threshold": "high"
     },
-    "depth": {
-        "control_weight": 1.0
+    "vis": {
+        "control_weight": 0.3
     }
 }
